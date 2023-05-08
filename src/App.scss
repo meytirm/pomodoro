@@ -1,0 +1,165 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('fonts/icomoon.eot?wapit5');
+  src: url('fonts/icomoon.eot?wapit5#iefix') format('embedded-opentype'),
+  url('fonts/icomoon.ttf?wapit5') format('truetype'),
+  url('fonts/icomoon.woff?wapit5') format('woff'),
+  url('fonts/icomoon.svg?wapit5#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow_drop_up:before {
+  content: "\e903";
+}
+
+.icon-arrow_drop_down:before {
+  content: "\e904";
+}
+
+.icon-insert_chart_outlined:before {
+  content: "\e900";
+}
+
+.icon-add-solid:before {
+  content: "\e901";
+}
+
+.icon-user-solid-circle:before {
+  content: "\e902";
+}
+
+.icon-cog:before {
+  content: "\e994";
+}
+
+body {
+  background-color: rgb(186, 73, 73);
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.App {
+  width: 620px;
+}
+
+.p-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.38);
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &--transparent {
+    background: transparent;
+  }
+
+  &--active {
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  &--xl {
+    font-size: 25px;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.26);
+  }
+}
+
+.p-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+
+  &__brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__text {
+    font-weight: bolder;
+    font-size: 20px;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+}
+
+.p-application {
+  padding: 40px 50px;
+}
+
+.p-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.p-timer {
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.p-count-down {
+  font-size: 120px;
+  font-weight: bold;
+}
+
+.p-bar {
+  width: 100%;
+  height: 1px;
+  background: #7a7a7a;
+  margin-bottom: 40px;
+
+  &__progressive {
+    height: 1px;
+    background: #ffffff;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: -5px;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50px;
+    }
+  }
+}
