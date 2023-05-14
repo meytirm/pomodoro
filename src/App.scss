@@ -1,10 +1,40 @@
 @font-face {
   font-family: 'icomoon';
-  src: url('fonts/icomoon.eot?wapit5');
-  src: url('fonts/icomoon.eot?wapit5#iefix') format('embedded-opentype'),
-  url('fonts/icomoon.ttf?wapit5') format('truetype'),
-  url('fonts/icomoon.woff?wapit5') format('woff'),
-  url('fonts/icomoon.svg?wapit5#icomoon') format('svg');
+  src: url('fonts/icomoon.eot?8f0r1m');
+  src: url('fonts/icomoon.eot?8f0r1m#iefix') format('embedded-opentype'),
+  url('fonts/icomoon.ttf?8f0r1m') format('truetype'),
+  url('fonts/icomoon.woff?8f0r1m') format('woff'),
+  url('fonts/icomoon.svg?8f0r1m#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+*:focus {
+  outline: none;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('fonts/icomoon.eot?fsny0o');
+  src: url('fonts/icomoon.eot?fsny0o#iefix') format('embedded-opentype'),
+  url('fonts/icomoon.ttf?fsny0o') format('truetype'),
+  url('fonts/icomoon.woff?fsny0o') format('woff'),
+  url('fonts/icomoon.svg?fsny0o#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +55,106 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-transfer:before {
+  content: "\e905";
+}
+
+.icon-arrows:before {
+  content: "\e905";
+}
+
+.icon-alert:before {
+  content: "\e906";
+}
+
+.icon-alarm:before {
+  content: "\e906";
+}
+
+.icon-yell:before {
+  content: "\e906";
+}
+
+.icon-lock:before {
+  content: "\e98f";
+}
+
+.icon-cog:before {
+  content: "\e994";
+}
+
+.icon-bin:before {
+  content: "\e9ac";
+}
+
+.icon-list2:before {
+  content: "\e9bb";
+}
+
+.icon-plus:before {
+  content: "\ea0a";
+}
+
+.icon-cancel-circle:before {
+  content: "\ea0d";
+}
+
+.icon-floppy-o:before {
+  content: "\e907";
+}
+
+.icon-save:before {
+  content: "\e907";
+}
+
+.icon-magic:before {
+  content: "\e908";
+}
+
+.icon-edit:before {
+  content: "\e918";
+}
+
+.icon-check-square:before {
+  content: "\e909";
+}
+
+.icon-launch:before {
+  content: "\e90a";
+}
+
+.icon-open_in_new:before {
+  content: "\e90a";
+}
+
+.icon-notifications_on:before {
+  content: "\e90b";
+}
+
+.icon-arrow_right:before {
+  content: "\e90c";
+}
+
+.icon-arrow_left:before {
+  content: "\e90d";
+}
+
+.icon-local_fire_department:before {
+  content: "\e90e";
+}
+
+.icon-access_time:before {
+  content: "\e90f";
+}
+
+.icon-query_builder:before {
+  content: "\e90f";
+}
+
+.icon-schedule1:before {
+  content: "\e90f";
+}
+
 .icon-arrow_drop_up:before {
   content: "\e903";
 }
@@ -37,6 +167,102 @@
   content: "\e900";
 }
 
+.icon-notice:before {
+  content: "\e910";
+}
+
+.icon-warning:before {
+  content: "\e910";
+}
+
+.icon-explanation-mark:before {
+  content: "\e910";
+}
+
+.icon-notification:before {
+  content: "\e910";
+}
+
+.icon-notice1:before {
+  content: "\e911";
+}
+
+.icon-warning1:before {
+  content: "\e911";
+}
+
+.icon-explanation-mark1:before {
+  content: "\e911";
+}
+
+.icon-notification1:before {
+  content: "\e911";
+}
+
+.icon-volume:before {
+  content: "\e912";
+}
+
+.icon-speaker:before {
+  content: "\e912";
+}
+
+.icon-sound:before {
+  content: "\e912";
+}
+
+.icon-loud:before {
+  content: "\e912";
+}
+
+.icon-calendar:before {
+  content: "\e913";
+}
+
+.icon-date:before {
+  content: "\e913";
+}
+
+.icon-schedule:before {
+  content: "\e913";
+}
+
+.icon-checkmark:before {
+  content: "\e914";
+}
+
+.icon-tick:before {
+  content: "\e914";
+}
+
+.icon-approve:before {
+  content: "\e914";
+}
+
+.icon-submit:before {
+  content: "\e914";
+}
+
+.icon-checkmark1:before {
+  content: "\e915";
+}
+
+.icon-tick1:before {
+  content: "\e915";
+}
+
+.icon-checkmark2:before {
+  content: "\e916";
+}
+
+.icon-tick2:before {
+  content: "\e916";
+}
+
+.icon-edit-pencil:before {
+  content: "\e917";
+}
+
 .icon-add-solid:before {
   content: "\e901";
 }
@@ -45,15 +271,19 @@
   content: "\e902";
 }
 
-.icon-cog:before {
-  content: "\e994";
-}
-
 body {
   background-color: rgb(186, 73, 73);
   color: white;
   display: flex;
   justify-content: center;
+}
+
+.dark-grey {
+  background: #7a7a7a !important;
+}
+
+.dark-grey-text {
+  color: #7a7a7a !important;
 }
 
 .App {
@@ -72,21 +302,36 @@ body {
   padding: 5px 10px;
   cursor: pointer;
   transition: 0.3s;
+  position: relative;
+
+  &:hover &-hover {
+    background: rgba(0, 0, 0, 0.17);
+  }
+
+  &-hover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.3s;
+    border-radius: 4px;
+  }
 
   &--transparent {
     background: transparent;
-  }
-
-  &--active {
-    background: rgba(0, 0, 0, 0.15);
   }
 
   &--xl {
     font-size: 25px;
   }
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.26);
+  &--active {
+    background: rgba(0, 0, 0, 0.15);
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.15);
+    }
   }
 }
 
@@ -133,6 +378,10 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 40px;
+
+  &__count {
+    margin-top: 30px;
+  }
 }
 
 .p-count-down {
@@ -162,4 +411,210 @@ body {
       border-radius: 50px;
     }
   }
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ffffff;
+}
+
+.p-dropdown {
+  position: relative;
+
+  &__menu {
+    color: black;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    width: 200px;
+    background: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
+    z-index: 50;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  &__item {
+    list-style: none;
+    padding: 15px;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background: #e7e7e7;
+    }
+  }
+}
+
+.p-list {
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    background: #ffffff;
+    margin: 10px 0;
+    border-radius: 4px;
+    border-left: 5px solid transparent;
+    cursor: pointer;
+    padding: 15px;
+
+    &:hover {
+      border-left: 5px solid #acacac;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__title {
+    color: #7a7a7a;
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  &__icon {
+    color: #cecece;
+    font-size: 35px;
+    cursor: pointer;
+
+    &:hover {
+      color: #d9d9d9;
+    }
+  }
+
+  &__options {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+
+    button {
+      color: #000000;
+      border: 1px solid grey;
+
+      &:hover {
+        background: #d9d9d9;
+      }
+    }
+  }
+
+  &__remaining {
+    color: #acacac;
+    font-weight: bolder;
+  }
+
+  &__operation {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__empty {
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+
+.modal-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 25;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-modal {
+  background: white;
+  color: black;
+  width: 500px;
+  border-radius: 8px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #d9d9d9;
+  }
+
+  &__body {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__action {
+    padding: 10px;
+    background: #eeeeee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__close {
+    cursor: pointer;
+    color: #7a7a7a;
+  }
+}
+
+.p-add-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border: 2px white dashed;
+  padding: 30px 0;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.p-report {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  gap: 10px;
+
+  &__value {
+    font-weight: bolder;
+    font-size: 22px;
+    margin: 0 5px;
+  }
+}
+
+.p-input {
+  border: 1px solid #cecece;
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.p-label {
+  color: #acacac;
+}
+
+.p-textarea {
+  resize: vertical;
+  border: 1px solid #cecece;
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
 }
