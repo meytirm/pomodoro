@@ -1,20 +1,20 @@
-import TimerOperationCountDown from "./TimerOperationCountDown";
-import TimerOperationButtons from "./TimerOperationButtons";
-import TimerOperationTabs from "./TimerOperationTabs";
-import ProgressiveBar from "./ProgressiveBar";
+import AppTimerCountDown from "./AppTimerCountDown";
+import AppTimerButtons from "./AppTimerButtons";
+import AppTimerTabs from "./AppTimerTabs";
+import AppTimerProgressiveBar from "./AppTimerProgressiveBar";
 import {useEffect, useState} from 'react';
 
 
-function TimerOperation() {
+function AppTimer() {
     const [timerState, setTimerState] = useState(false);
-    const [minutes, setMinutes] = useState(15);
+    const [minutes, setMinutes] = useState(0.1);
     const [minutesToSeconds, setMinutesToSeconds] = useState(minutes * 60);
     const [tab, setTab] = useState(0);
 
     const tabs = [
-        {name: 'Pomodoro', color: 'rgb(186, 73, 73)', time: 15},
-        {name: 'Break', color: 'rgb(56, 133, 138)', time: 5},
-        {name: 'Long Break', color: 'rgb(57, 112, 151)', time: 25},
+        {name: 'Pomodoro', color: 'rgb(186, 73, 73)', time: 0.1},
+        {name: 'Break', color: 'rgb(56, 133, 138)', time: 0.2},
+        {name: 'Long Break', color: 'rgb(57, 112, 151)', time: 0.3},
     ]
 
     function handleTimerState() {
@@ -27,7 +27,6 @@ function TimerOperation() {
             interval = setInterval(() => {
                 if (minutesToSeconds === 0) {
                     const timerType = tabs[tab].name
-                    const minutes = tabs[tab].time
                     let countOfTimer = localStorage.getItem(timerType)
 
                     setMinutesToSeconds(minutes * 60)
@@ -66,18 +65,22 @@ function TimerOperation() {
         ((minutes * 60 - minutesToSeconds) / (minutes * 60)) * 100
     ).toFixed(2)
 
+    let countOfTimer = localStorage.getItem(tabs[tab].name)
+    countOfTimer = countOfTimer ? countOfTimer : 0
+
     return (
         <div className="p-timer">
-            <ProgressiveBar percent={percent}/>
-            <TimerOperationTabs value={tab} tabs={tabs} onClick={setTabClick}/>
-            <TimerOperationCountDown time={minutesToSeconds}/>
-            <TimerOperationButtons state={timerState} onClick={handleTimerState}/>
-            <div>
+            <AppTimerProgressiveBar percent={percent}/>
+            <AppTimerTabs value={tab} tabs={tabs} onClick={setTabClick}/>
+            <AppTimerCountDown time={minutesToSeconds}/>
+            <AppTimerButtons state={timerState} onClick={handleTimerState}/>
+            <div className="p-timer__count">
                 <span>Count Of Timer: </span>
-                <span># {localStorage.getItem(tabs[tab].name)}</span>
+                <span>#{countOfTimer}</span>
             </div>
         </div>
     )
+
 }
 
-export default TimerOperation
+export default AppTimer

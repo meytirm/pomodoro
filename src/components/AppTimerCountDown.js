@@ -1,4 +1,4 @@
-function TimerOperationCountDown({time}) {
+function AppTimerCountDown({time}) {
     let minutes = Math.floor(time / 60)
     let seconds = time % 60
 
@@ -10,4 +10,4 @@ function TimerOperationCountDown({time}) {
     )
 }
 
-export default TimerOperationCountDown
+export default AppTimerCountDown

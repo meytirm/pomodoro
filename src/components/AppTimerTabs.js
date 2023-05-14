@@ -1,6 +1,6 @@
 import BaseButton from "./BaseButton";
 
-function TimerOperationTabs({tabs, value ,onClick}) {
+function AppTimerTabs({tabs, value ,onClick}) {
 
     function handleTabClick(index) {
         onClick(index)
@@ -19,4 +19,4 @@ function TimerOperationTabs({tabs, value ,onClick}) {
     )
 }
 
-export default TimerOperationTabs
+export default AppTimerTabs

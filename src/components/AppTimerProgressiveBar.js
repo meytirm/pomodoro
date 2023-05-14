@@ -1,4 +1,4 @@
-function ProgressiveBar({percent}) {
+function AppTimerProgressiveBar({percent}) {
     return (
         <div className="p-bar">
             <div className="p-bar__progressive" style={{width: percent + '%'}}></div>
@@ -6,4 +6,4 @@ function ProgressiveBar({percent}) {
     )
 }
 
-export default ProgressiveBar
+export default AppTimerProgressiveBar
