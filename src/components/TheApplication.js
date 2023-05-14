@@ -1,9 +1,13 @@
-import TimerOperation from "./TimerOperation";
+import AppTimer from "./AppTimer";
+import AppTasks from "./AppTasks";
+import AppReport from "./AppReport";
 
 function TheApplication() {
     return (
         <div className="p-application">
-            <TimerOperation />
+            <AppTimer />
+            <AppTasks />
+            <AppReport />
         </div>
     )
 }
