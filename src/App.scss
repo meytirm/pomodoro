@@ -463,6 +463,14 @@ body {
     cursor: pointer;
     padding: 15px;
 
+    &--active {
+      border-left: 5px solid #7a7a7a;
+
+      &:hover {
+        border-left: 5px solid #7a7a7a !important;
+      }
+    }
+
     &:hover {
       border-left: 5px solid #acacac;
     }
@@ -485,6 +493,14 @@ body {
     color: #cecece;
     font-size: 35px;
     cursor: pointer;
+
+    &--done {
+      color: #7a7a7a;
+
+      &:hover {
+        color: #7a7a7a !important;
+      }
+    }
 
     &:hover {
       color: #d9d9d9;
