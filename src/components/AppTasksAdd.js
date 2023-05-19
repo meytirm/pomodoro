@@ -6,7 +6,7 @@ import BaseTextArea from "./BaseTextArea";
 
 function AppTasksAdd({updateTasks}) {
     const [modal, setModal] = useState(false)
-    const [countOfPomodoro, setCountOfPomodoro] = useState(0)
+    const [countOfPomodoro, setCountOfPomodoro] = useState(1)
     const [showNote, setShowNote] = useState(false)
     const [note, setNote] = useState("")
     const [title, setTitle] = useState("")
@@ -20,15 +20,17 @@ function AppTasksAdd({updateTasks}) {
     }
 
     function saveNewTask() {
+        const didPomodoro = 0
+        const done = false
         const id = Date.now() + Math.random().toFixed()
-        const task = JSON.stringify({title, note, countOfPomodoro, id})
+        const task = JSON.stringify({title, note, countOfPomodoro, id, done, didPomodoro, selected: false})
         let tasks = localStorage.getItem('tasks')
         if (tasks) {
             const parsedTasks = JSON.parse(tasks)
             parsedTasks.push(JSON.parse(task))
             localStorage.setItem('tasks', JSON.stringify(parsedTasks))
         } else {
-            const task = JSON.stringify([{title, note, countOfPomodoro, id}])
+            const task = JSON.stringify([{title, note, countOfPomodoro, id, done, didPomodoro, selected: true}])
             localStorage.setItem('tasks', task)
         }
         updateTasks(JSON.parse(localStorage.getItem('tasks')))
@@ -60,7 +62,7 @@ function AppTasksAdd({updateTasks}) {
                         label="Count Of Pomodoro: "
                         placeholder="What are you working on?"
                         type="number"
-                        min="0"
+                        min="1"
                         max="5"
                         value={countOfPomodoro}
                         onInput={justNumber}

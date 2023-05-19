@@ -8,7 +8,7 @@ function AppTasks() {
     return (
         <div>
             <AppTasksHeader/>
-            <AppTasksList tasks={tasks} />
+            <AppTasksList updateTasks={(tasks) => updateTasks(tasks)} tasks={tasks} />
             <AppTasksAdd updateTasks={(tasks) => updateTasks(tasks)} />
         </div>
     )

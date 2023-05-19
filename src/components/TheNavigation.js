@@ -8,9 +8,9 @@ function TheNavigation() {
                 <span className="p-navigation__text">Pomodoro</span>
             </div>
             <div className="p-navigation__menu">
-                <BaseButton>Report <span className="icon-cog"></span></BaseButton>
-                <BaseButton>Setting <span className="icon-insert_chart_outlined"></span></BaseButton>
-                <BaseButton>Login <span className="icon-user-solid-circle"></span></BaseButton>
+                {/*<BaseButton>Report <span className="icon-insert_chart_outlined"></span></BaseButton>*/}
+                <BaseButton>Setting <span className="icon-cog"></span></BaseButton>
+                {/*<BaseButton>Login <span className="icon-user-solid-circle"></span></BaseButton>*/}
             </div>
         </div>
     )
