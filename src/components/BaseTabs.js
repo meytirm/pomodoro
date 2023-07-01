@@ -1,6 +1,6 @@
 import BaseButton from "./BaseButton";
 
-function AppTimerTabs({tabs, value ,onClick}) {
+function BaseTabs({tabs, value ,onClick}) {
 
     function handleTabClick(index) {
         onClick(index)
@@ -10,7 +10,7 @@ function AppTimerTabs({tabs, value ,onClick}) {
         key={index}
         active={index === value}
         onClick={() => handleTabClick(index)}
-        transparent>{tab.name}</BaseButton>)
+        transparent>{tab.label}</BaseButton>)
 
     return (
         <div className="p-tabs">
@@ -19,4 +19,4 @@ function AppTimerTabs({tabs, value ,onClick}) {
     )
 }
 
-export default AppTimerTabs
+export default BaseTabs

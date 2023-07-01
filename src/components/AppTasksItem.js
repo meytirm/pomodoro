@@ -1,21 +1,21 @@
 import BaseButton from "./BaseButton";
-import AppModal from "./AppModal";
+import BaseModal from "./BaseModal";
 import {useRef, useState} from "react";
 import BaseInput from "./BaseInput";
 import BaseTextArea from "./BaseTextArea";
+import {useTasks, useTasksDispatch} from "../TaskContext";
+import {setTasks} from "../utils/task-api";
 
-function AppTasksItem({task, updateTasks, selected, selectItemEvent}) {
-    const [editModal, setEditModal] = useState(false)
-    const [removeModal, setRemoveModal] = useState(false)
-
-    const [title, setTitle] = useState(task.title)
+function AppTasksItem({task, selected, selectItemEvent}) {
     const [countOfPomodoro, setCountOfPomodoro] = useState(task.countOfPomodoro)
+    const [removeModal, setRemoveModal] = useState(false)
+    const [editModal, setEditModal] = useState(false)
+    const [title, setTitle] = useState(task.title)
     const [note, setNote] = useState(task.note)
     const [done, setDone] = useState(task.done)
-
+    const tasks = useTasks()
+    const tasksDispatch = useTasksDispatch()
     const doneRef = useRef()
-
-    const tasks = JSON.parse(localStorage.getItem('tasks'))
 
     function justNumber(e) {
         if (e.target.value) {
@@ -27,20 +27,21 @@ function AppTasksItem({task, updateTasks, selected, selectItemEvent}) {
 
     function removeTasks() {
         const filteredTasks = tasks.filter((item) => item.id !== task.id)
-        localStorage.setItem('tasks', JSON.stringify(filteredTasks))
-        updateTasks(filteredTasks)
+        setTasks(filteredTasks)
+        tasksDispatch({type: 'delete', tasks: filteredTasks})
         setRemoveModal(false)
     }
 
     function editTasks() {
-        const editedTasks = tasks.map((item) => {
-            if (item.id === task.id) {
-                return {id: item.id, title, countOfPomodoro, note, done, didPomodoro: item.didPomodoro}
-            }
-            return item
+        const copyTasks = tasks
+        const findTask = copyTasks.find((item) => item.id === task.id)
+        const editTask = {title, countOfPomodoro, note}
+
+        Object.keys(editTask).forEach(key => {
+            findTask[key] = editTask[key]
         })
-        localStorage.setItem('tasks', JSON.stringify(editedTasks))
-        updateTasks(editedTasks)
+        setTasks(copyTasks)
+        tasksDispatch({type: 'update', tasks: copyTasks})
         setEditModal(false)
     }
 
@@ -53,18 +54,16 @@ function AppTasksItem({task, updateTasks, selected, selectItemEvent}) {
     }
 
     function toggleDone() {
-        const editedTasks = tasks.map((item) => {
-            setDone(done => !done)
-            if (item.id === task.id) {
-                return {id: item.id, title, countOfPomodoro, note, done: !done, didPomodoro: item.didPomodoro}
-            }
-            return item
-        })
-        localStorage.setItem('tasks', JSON.stringify(editedTasks))
-        updateTasks(editedTasks)
+        const copyTasks = tasks
+        const findTask = copyTasks.find((item) => item.id === task.id)
+
+        setDone(!done)
+        findTask.done = !done
+        setTasks(copyTasks)
+        tasksDispatch({type: 'update', tasks: copyTasks})
     }
 
-    const doneClass = done ? ' p-list__icon--done' : ''
+    const doneClass = task.done ? ' p-list__icon--done' : ''
 
     return (
         <div>
@@ -86,7 +85,7 @@ function AppTasksItem({task, updateTasks, selected, selectItemEvent}) {
                     </div>
                 </div>
             </div>
-            <AppModal value={editModal} close={() => setEditModal(false)} submit={editTasks}>
+            <BaseModal value={editModal} close={() => setEditModal(false)} submit={editTasks} submitButton>
                 <BaseInput
                     value={title}
                     label="Task Name: "
@@ -108,14 +107,16 @@ function AppTasksItem({task, updateTasks, selected, selectItemEvent}) {
                 <BaseTextArea
                     onInput={(e) => setNote(e.target.value)}
                     value={note}/>
-            </AppModal>
-            <AppModal
+            </BaseModal>
+            <BaseModal
                 title="Delete"
                 value={removeModal}
                 close={() => setRemoveModal(false)}
-                submit={removeTasks}>
+                submit={removeTasks}
+                buttonColor="red"
+                submitButton>
                 Are you sure to delete?
-            </AppModal>
+            </BaseModal>
         </div>
     )
 }

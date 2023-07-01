@@ -1,6 +1,6 @@
 import BaseButton from "./BaseButton";
 
-function AppModal({title, value, children, close, submit}) {
+function BaseModal({title, value, children, close, submit, submitButton, buttonColor = 'green' }) {
     if (!value) return null
     return (
         <div className="modal-wrapper">
@@ -11,12 +11,12 @@ function AppModal({title, value, children, close, submit}) {
                 </div>
                 <div className="p-modal__body">{children}</div>
                 <div className="p-modal__action">
-                    <BaseButton className="dark-grey" onClick={submit}>Okay</BaseButton>
-                    <BaseButton transparent className="dark-grey-text" onClick={close}>Cancel</BaseButton>
+                    {submitButton ? <BaseButton className={buttonColor} onClick={submit}>Submit</BaseButton> : ''}
+                    <BaseButton className="dark-grey" onClick={close}>{submitButton ? 'Close' : 'Okay'}</BaseButton>
                 </div>
             </div>
         </div>
     )
 }
 
-export default AppModal
+export default BaseModal

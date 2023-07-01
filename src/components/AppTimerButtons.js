@@ -1,11 +1,11 @@
 import BaseButton from "./BaseButton";
 
-function AppTimerButtons({state, onClick}) {
+function AppTimerButtons({pause, onClick}) {
     const startButton = <BaseButton className="p-button--xl">START</BaseButton>
     const pauseButton = <BaseButton className="p-button--xl">PAUSE</BaseButton>
 
     let button
-    if (!state) {
+    if (pause) {
         button = startButton
     } else {
         button = pauseButton

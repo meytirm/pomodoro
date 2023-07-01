@@ -1,38 +1,35 @@
 import AppTasksItem from "./AppTasksItem";
-import {useState} from "react";
+import {useTasks, useTasksDispatch} from "../TaskContext";
+import {getTasks, setTasks} from "../utils/task-api";
 
-function AppTasksList({tasks, updateTasks}) {
-    const [selectedTask, setSelectedTask] = useState('')
-
+function AppTasksList() {
+    const tasksDispatch = useTasksDispatch()
+    const tasks = useTasks()
     function selectTask(id) {
-        const tasks = JSON.parse(localStorage.getItem('tasks')).map(task => {
+        const tasks = getTasks()
+        tasks.forEach(task => {
             if (task.id === id) {
                 task.selected = true
-                return task
+            } else {
+                task.selected = false
             }
-            task.selected = false
-            return task
         })
-        localStorage.setItem('tasks', JSON.stringify(tasks))
-        setSelectedTask(id)
-    }
-
-
-
-    if (!selectedTask && tasks.some(task => task.selected === true)) {
-        const task = tasks.find(task => task.selected === true)
-        selectTask(task.id)
+        setTasks(tasks)
+        tasksDispatch({
+            type: 'update',
+            tasks
+        })
     }
 
     const items = tasks && tasks.length > 0 ? tasks.map(
         (task, index) => <AppTasksItem
-            selected={selectedTask === task.id}
+            selected={task.selected}
             selectItemEvent={(id) => selectTask(id)}
             task={task}
             key={index}
-            updateTasks={updateTasks}
         />
     ) : <div className="p-list__empty">You can add your tasks here</div>
+
     return (
         <div className="p-list">
             {items}

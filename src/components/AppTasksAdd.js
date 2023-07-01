@@ -1,15 +1,19 @@
 import BaseButton from "./BaseButton";
-import AppModal from "./AppModal";
+import BaseModal from "./BaseModal";
 import {useState} from "react";
 import BaseInput from "./BaseInput";
 import BaseTextArea from "./BaseTextArea";
+import {useTasks, useTasksDispatch} from "../TaskContext";
+import {getTasks, setTasks} from "../utils/task-api";
 
-function AppTasksAdd({updateTasks}) {
+function AppTasksAdd() {
     const [modal, setModal] = useState(false)
     const [countOfPomodoro, setCountOfPomodoro] = useState(1)
     const [showNote, setShowNote] = useState(false)
     const [note, setNote] = useState("")
     const [title, setTitle] = useState("")
+    const taskDispatch = useTasksDispatch()
+    const tasks = useTasks()
 
     function justNumber(e) {
         if (e.target.value) {
@@ -19,21 +23,18 @@ function AppTasksAdd({updateTasks}) {
         }
     }
 
-    function saveNewTask() {
-        const didPomodoro = 0
-        const done = false
+
+    function createTask() {
         const id = Date.now() + Math.random().toFixed()
-        const task = JSON.stringify({title, note, countOfPomodoro, id, done, didPomodoro, selected: false})
-        let tasks = localStorage.getItem('tasks')
-        if (tasks) {
-            const parsedTasks = JSON.parse(tasks)
-            parsedTasks.push(JSON.parse(task))
-            localStorage.setItem('tasks', JSON.stringify(parsedTasks))
-        } else {
-            const task = JSON.stringify([{title, note, countOfPomodoro, id, done, didPomodoro, selected: true}])
-            localStorage.setItem('tasks', task)
+        const task = {title, note, countOfPomodoro, id, done: false, didPomodoro: 0, selected: false}
+        const tasks = getTasks()
+        if (tasks.length === 0) {
+            task.selected = true
         }
-        updateTasks(JSON.parse(localStorage.getItem('tasks')))
+        console.log(task.selected)
+        tasks.push(task)
+        setTasks(tasks)
+        taskDispatch({type: 'create', task})
         setModal(false)
     }
 
@@ -46,11 +47,12 @@ function AppTasksAdd({updateTasks}) {
                 <span className="icon-add-solid"></span>
                 <span>ADD TASK</span>
             </BaseButton>
-            <AppModal
+            <BaseModal
                 value={modal}
                 title="Add Task"
                 close={() => setModal(false)}
-                submit={saveNewTask}>
+                submit={createTask}
+                submitButton>
                 <BaseInput
                     value={title}
                     label="Task Name: "
@@ -78,7 +80,7 @@ function AppTasksAdd({updateTasks}) {
                             onInput={(e) => setNote(e.target.value)}
                             value={note}/>
                 }
-            </AppModal>
+            </BaseModal>
         </div>
     )
 }

@@ -1,15 +1,13 @@
 import AppTasksHeader from "./AppTasksHeader";
 import AppTasksList from "./AppTasksList";
 import AppTasksAdd from "./AppTasksAdd";
-import {useState} from "react";
 
 function AppTasks() {
-    const [tasks, updateTasks] = useState(JSON.parse(localStorage.getItem('tasks')))
     return (
         <div>
-            <AppTasksHeader/>
-            <AppTasksList updateTasks={(tasks) => updateTasks(tasks)} tasks={tasks} />
-            <AppTasksAdd updateTasks={(tasks) => updateTasks(tasks)} />
+            <AppTasksHeader />
+            <AppTasksList />
+            <AppTasksAdd />
         </div>
     )
 }
