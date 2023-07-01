@@ -273,6 +273,7 @@ html {
 
 body {
   background-color: rgb(186, 73, 73);
+  transition: background-color 0.3s;
   color: white;
   display: flex;
   justify-content: center;
@@ -282,12 +283,76 @@ body {
   background: #7a7a7a !important;
 }
 
+.green {
+  background-color: #71b300 !important;
+}
+
+.red {
+  background-color: #b3000f !important;
+}
+
 .dark-grey-text {
   color: #7a7a7a !important;
 }
 
+.d-flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-5 {
+  gap: 5px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.font-weight-normal {
+  font-weight: normal;
+}
+
 .App {
   width: 620px;
+}
+
+.p-switch {
+  background-color: #acacac;
+  width: 60px;
+  height: 32px;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &__bar {
+    height: 32px;
+    width: 32px;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 1px;
+    border-radius: 50%;
+    transform: translate(0, 0);
+    transition: all 0.3s;
+
+    &--active {
+      transform: translate(100%, 0);
+    }
+  }
+
+  &--active {
+    background-color: #71b300;
+  }
 }
 
 .p-button {
@@ -428,7 +493,7 @@ body {
     position: absolute;
     right: 0;
     top: 20px;
-    width: 200px;
+    width: 300px;
     background: #ffffff;
     border: 1px solid #eee;
     border-radius: 8px;
@@ -439,7 +504,10 @@ body {
   }
 
   &__item {
+    display: flex;
+    align-items: center;
     list-style: none;
+    gap: 5px;
     padding: 15px;
     transition: all 0.3s;
     cursor: pointer;
@@ -587,6 +655,50 @@ body {
   }
 }
 
+.modal-section {
+  padding: 20px 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  &:not(:last-child) {
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  &__main{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #cecece;
+    font-size: 22px;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+
+  &__label {
+    font-size: 16px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: #7a7a7a;
+  }
+
+  &__time {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
 .p-add-button {
   display: flex;
   align-items: center;
@@ -633,4 +745,51 @@ body {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
+}
+
+.summery {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+
+  &__info {
+    font-weight: bold;
+    font-size: 25px;
+    color: rgb(213, 117, 114);
+  }
+
+  &__item {
+    flex: 1 1 0px;
+    background-color: rgb(248, 232, 231);
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  &__label {
+    margin-top: 5px;
+    color: rgb(213, 117, 114);
+    font-weight: bold;
+    text-align: right;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px;
+    color: rgb(245, 162, 159);
+  }
+}
+
+.p-filters {
+  background: #c27272;
+  border-radius: 8px;
+  padding: 5px 10px;
+}
+
+.filters-wrapper {
+  display: flex;
+  justify-content: end;
+  margin: 20px 0;
 }
