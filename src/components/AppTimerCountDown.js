@@ -4,6 +4,7 @@ function AppTimerCountDown({time}) {
 
     minutes = minutes < 10 ? `0${minutes}` : minutes
     seconds = seconds < 10 ? `0${seconds}` : seconds
+    document.title = `${minutes}:${seconds}`
 
     return (
         <div className="p-count-down">{minutes}:{seconds}</div>
