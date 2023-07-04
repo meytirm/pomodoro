@@ -279,6 +279,10 @@ body {
   justify-content: center;
 }
 
+#root {
+  width: 100%;
+}
+
 .dark-grey {
   background: #7a7a7a !important;
 }
@@ -325,6 +329,7 @@ body {
 
 .App {
   width: 620px;
+  margin: auto;
 }
 
 .p-switch {
@@ -625,6 +630,7 @@ body {
   color: black;
   width: 500px;
   border-radius: 8px;
+  overflow: hidden;
 
   &__header {
     display: flex;
@@ -660,11 +666,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+
   &:not(:last-child) {
     border-bottom: 1px solid #eeeeee;
   }
 
-  &__main{
+  &__main {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -792,4 +799,25 @@ body {
   display: flex;
   justify-content: end;
   margin: 20px 0;
+}
+
+@media (max-width: 620px) {
+  .App {
+    width: 100%;
+  }
+
+  .p-navigation {
+    padding: 15px 5px;
+  }
+
+  .p-count-down {
+    font-size: 80px;
+    font-weight: bold;
+  }
+  .p-application {
+    padding: 40px 5px;
+  }
+  .p-modal {
+    margin: 0 5px;
+  }
 }
