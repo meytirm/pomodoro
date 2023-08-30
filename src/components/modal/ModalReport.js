@@ -1,4 +1,4 @@
-import BaseModal from "./BaseModal";
+import BaseModal from "../base/BaseModal";
 import ModalReportActivity from "./ModalReportActivity";
 import ModalReportSummery from "./ModalReportSummery";
 

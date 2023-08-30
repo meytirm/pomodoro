@@ -1,12 +1,12 @@
-import BaseButton from "./BaseButton";
-import BaseModal from "./BaseModal";
 import {useState} from "react";
-import BaseInput from "./BaseInput";
-import BaseTextArea from "./BaseTextArea";
-import {useTasks, useTasksDispatch} from "../TaskContext";
-import {getTasks, setTasks} from "../utils/task-api";
+import {useTasks, useTasksDispatch} from "../../TaskContext";
+import {getTasks, setTasks} from "../../utils/task-api";
+import BaseModal from "../base/BaseModal";
+import BaseButton from "../base/BaseButton";
+import BaseInput from "../base/BaseInput";
+import BaseTextArea from "../modal/BaseTextArea";
 
-function AppTasksAdd() {
+function TasksAdd() {
     const [modal, setModal] = useState(false)
     const [countOfPomodoro, setCountOfPomodoro] = useState(1)
     const [showNote, setShowNote] = useState(false)
@@ -85,5 +85,5 @@ function AppTasksAdd() {
     )
 }
 
-export default AppTasksAdd
+export default TasksAdd
 

@@ -1,4 +1,4 @@
-function AppReport() {
+function TasksPomodoroReport() {
     const tasks = JSON.parse(localStorage.getItem('tasks'))
 
     const total = tasks.reduce((total, next) => {
@@ -20,13 +20,8 @@ function AppReport() {
                 <span>Pomodoro:</span>
                 <span className="p-report__value">{total.join('/')}</span>
             </div>
-            {/*<div className="p-report__item">*/}
-            {/*    <span>Finish At:</span>*/}
-            {/*    <span className="p-report__value">10:24</span>*/}
-            {/*    <span>(0h)</span>*/}
-            {/*</div>*/}
         </div>
     )
 }
 
-export default AppReport
+export default TasksPomodoroReport

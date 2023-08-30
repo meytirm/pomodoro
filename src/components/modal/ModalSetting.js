@@ -1,7 +1,7 @@
-import BaseInput from "./BaseInput";
-import BaseSwitch from "./BaseSwitch";
-import BaseModal from "./BaseModal";
-import {useSettings, useSettingsDispatch} from "../SettingContext";
+import BaseInput from "../base/BaseInput";
+import BaseSwitch from "../base/BaseSwitch";
+import BaseModal from "../base/BaseModal";
+import {useSettings, useSettingsDispatch} from "../../SettingContext";
 
 function ModalSetting({ value, close }) {
     const settings = useSettings()

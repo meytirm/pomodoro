@@ -1,12 +1,12 @@
-import BaseButton from "./BaseButton";
-import BaseModal from "./BaseModal";
+import BaseButton from "../base/BaseButton";
+import BaseModal from "../base/BaseModal";
 import {useRef, useState} from "react";
-import BaseInput from "./BaseInput";
-import BaseTextArea from "./BaseTextArea";
-import {useTasks, useTasksDispatch} from "../TaskContext";
-import {setTasks} from "../utils/task-api";
+import BaseInput from "../base/BaseInput";
+import BaseTextArea from "../modal/BaseTextArea";
+import {useTasks, useTasksDispatch} from "../../TaskContext";
+import {setTasks} from "../../utils/task-api";
 
-function AppTasksItem({task, selected, selectItemEvent}) {
+function TasksItem({task, selected, selectItemEvent}) {
     const [countOfPomodoro, setCountOfPomodoro] = useState(task.countOfPomodoro)
     const [removeModal, setRemoveModal] = useState(false)
     const [editModal, setEditModal] = useState(false)
@@ -121,4 +121,4 @@ function AppTasksItem({task, selected, selectItemEvent}) {
     )
 }
 
-export default AppTasksItem
+export default TasksItem

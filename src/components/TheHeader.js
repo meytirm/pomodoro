@@ -1,11 +1,9 @@
-import BaseButton from "./BaseButton";
+import ModalSetting from "./modal/ModalSetting";
+import ModalReport from "./modal/ModalReport";
+import BaseButton from "./base/BaseButton";
 import {useState} from "react";
-import ModalSetting from "./ModalSetting";
-import ModalReport from "./ModalReport";
 
-
-
-function TheNavigation() {
+function TheHeader() {
     const [reportModal, setReportModal] = useState(false)
     const [settingModal, setSettingModal] = useState(false)
 
@@ -41,4 +39,4 @@ function TheNavigation() {
     )
 }
 
-export default TheNavigation
+export default TheHeader

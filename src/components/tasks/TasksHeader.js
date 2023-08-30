@@ -1,9 +1,9 @@
-import BaseButton from "./BaseButton";
 import {useEffect, useState, useRef} from "react";
-import {useTasks, useTasksDispatch} from "../TaskContext";
-import {getTasks, setTasks} from "../utils/task-api";
+import {useTasks, useTasksDispatch} from "../../TaskContext";
+import {getTasks, setTasks} from "../../utils/task-api";
+import BaseButton from "../base/BaseButton";
 
-function AppTasksHeader() {
+function TasksHeader() {
     const [optionIsOpen, setOptionIsOpen] = useState(false)
     const dropdownRef = useRef()
     const buttonActiveClass = optionIsOpen ? 'p-button--active' : ''
@@ -109,4 +109,4 @@ function AppTasksHeader() {
     )
 }
 
-export default AppTasksHeader
+export default TasksHeader
