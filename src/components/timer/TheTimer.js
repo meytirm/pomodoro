@@ -7,6 +7,7 @@ import TimerController from "./TimerController";
 import TimerCounterReport from "./TimerCounterReport";
 import {setTasks} from "../../utils/task-api";
 import {useTasks, useTasksDispatch} from "../../TaskContext";
+import moment from "moment/moment";
 
 
 function TheTimer() {
@@ -45,8 +46,9 @@ function TheTimer() {
             setTasks(copyTasks)
             tasksDispatch({type: 'update', tasks: copyTasks})
             if (settings.autoTask) {
+                console.log('here')
                 const taskIndex = copyTasks.findIndex(task => task.selected === true)
-                if (taskIndex === copyTasks.length -1) {
+                if (taskIndex === copyTasks.length - 1) {
                     copyTasks.forEach((task, index) => {
                         if (index === 0) {
                             task.selected = true
@@ -56,7 +58,8 @@ function TheTimer() {
                     })
                 } else {
                     copyTasks.forEach((task, index) => {
-                        if (index === taskIndex) {
+                        console.log(index, taskIndex, task)
+                        if (index === taskIndex + 1) {
                             task.selected = true
                         } else {
                             task.selected = false
@@ -70,6 +73,16 @@ function TheTimer() {
         if (!pause) {
             intervalRef.current = setInterval(() => {
                 setSeconds(seconds => seconds - 1)
+                const report = JSON.parse(localStorage.getItem('report'))
+                const today = moment().format('YYYY-MM-DD')
+                if (report.dates.labels[report.dates.labels.length - 1] !== today) {
+                    report.dates.labels.push(today)
+                    report.dates.data.push(0)
+                }
+                if (tabs[tab].name === 'pomodoro') {
+                    report.dates.data[report.dates.labels.length - 1] += 1
+                    localStorage.setItem('report', JSON.stringify(report))
+                }
             }, 1000)
         }
         return () => clearInterval(intervalRef.current)
@@ -87,9 +100,9 @@ function TheTimer() {
             {tab.name}
             <TimerProgressBar minutes={tabs[tab].time} seconds={seconds}/>
             <TimerNavigation tab={tab} tabs={tabs} onClick={handleNavigationClick}/>
-            <TimerCountDown allSeconds={seconds} />
+            <TimerCountDown allSeconds={seconds}/>
             <TimerController pause={pause} onClick={() => setPause(!pause)}/>
-            <TimerCounterReport timerTab={tabs[tab]} />
+            <TimerCounterReport timerTab={tabs[tab]}/>
         </div>
     )
 }
