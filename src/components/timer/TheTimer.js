@@ -48,20 +48,12 @@ function TheTimer() {
                 const taskIndex = copyTasks.findIndex(task => task.selected === true)
                 if (taskIndex === copyTasks.length - 1) {
                     copyTasks.forEach((task, index) => {
-                        if (index === 0) {
-                            task.selected = true
-                        } else {
-                            task.selected = false
-                        }
+                        task.selected = index === 0;
                     })
                 } else {
                     copyTasks.forEach((task, index) => {
                         console.log(index, taskIndex, task)
-                        if (index === taskIndex + 1) {
-                            task.selected = true
-                        } else {
-                            task.selected = false
-                        }
+                        task.selected = index === taskIndex + 1;
                     })
                 }
             }
