@@ -1,8 +1,8 @@
-import AppTasksItem from "./AppTasksItem";
-import {useTasks, useTasksDispatch} from "../TaskContext";
-import {getTasks, setTasks} from "../utils/task-api";
+import {useTasks, useTasksDispatch} from "../../TaskContext";
+import {getTasks, setTasks} from "../../utils/task-api";
+import TasksItem from "./TasksItem";
 
-function AppTasksList() {
+function TasksList() {
     const tasksDispatch = useTasksDispatch()
     const tasks = useTasks()
     function selectTask(id) {
@@ -22,7 +22,7 @@ function AppTasksList() {
     }
 
     const items = tasks && tasks.length > 0 ? tasks.map(
-        (task, index) => <AppTasksItem
+        (task, index) => <TasksItem
             selected={task.selected}
             selectItemEvent={(id) => selectTask(id)}
             task={task}
@@ -37,4 +37,4 @@ function AppTasksList() {
     )
 }
 
-export default AppTasksList
+export default TasksList

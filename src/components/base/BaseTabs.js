@@ -1,7 +1,6 @@
 import BaseButton from "./BaseButton";
 
 function BaseTabs({tabs, value ,onClick}) {
-
     function handleTabClick(index) {
         onClick(index)
     }

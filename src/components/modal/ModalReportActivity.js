@@ -1,5 +1,5 @@
 import ModalReportActivityChart from "./ModalReportActivityChart";
-import BaseTabs from "./BaseTabs";
+import BaseTabs from "../base/BaseTabs";
 import {useState} from "react";
 
 function ModalReportActivity() {

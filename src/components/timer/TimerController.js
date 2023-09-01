@@ -1,6 +1,6 @@
-import BaseButton from "./BaseButton";
+import BaseButton from "../base/BaseButton";
 
-function AppTimerButtons({pause, onClick}) {
+function TimerController({pause, onClick}) {
     const startButton = <BaseButton className="p-button--xl">START</BaseButton>
     const pauseButton = <BaseButton className="p-button--xl">PAUSE</BaseButton>
 
@@ -12,9 +12,8 @@ function AppTimerButtons({pause, onClick}) {
     }
 
     return (
-
         <div onClick={onClick}>{button}</div>
     )
 }
 
-export default AppTimerButtons
+export default TimerController

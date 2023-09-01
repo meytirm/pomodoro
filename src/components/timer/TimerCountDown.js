@@ -1,6 +1,6 @@
-function AppTimerCountDown({time}) {
-    let minutes = Math.floor(time / 60)
-    let seconds = time % 60
+function TimerCountDown({allSeconds}) {
+    let minutes = Math.floor(allSeconds / 60)
+    let seconds = allSeconds % 60
 
     minutes = minutes < 10 ? `0${minutes}` : minutes
     seconds = seconds < 10 ? `0${seconds}` : seconds
@@ -11,4 +11,4 @@ function AppTimerCountDown({time}) {
     )
 }
 
-export default AppTimerCountDown
+export default TimerCountDown
