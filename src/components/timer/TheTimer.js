@@ -43,8 +43,6 @@ function TheTimer() {
             if (timerType === 'pomodoro') {
                 findTask.didPomodoro += 1
             }
-            setTasks(copyTasks)
-            tasksDispatch({type: 'update', tasks: copyTasks})
             if (settings.autoTask) {
                 console.log('here')
                 const taskIndex = copyTasks.findIndex(task => task.selected === true)
@@ -67,6 +65,8 @@ function TheTimer() {
                     })
                 }
             }
+            setTasks(copyTasks)
+            tasksDispatch({type: 'update', tasks: copyTasks})
             handleFinishedTimer()
             setPause(true)
         }
