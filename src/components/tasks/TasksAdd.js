@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {useTasks, useTasksDispatch} from "../../TaskContext";
+import {useTasksDispatch} from "../../TaskContext";
 import {getTasks, setTasks} from "../../utils/task-api";
 import BaseModal from "../base/BaseModal";
 import BaseButton from "../base/BaseButton";
@@ -13,7 +13,6 @@ function TasksAdd() {
     const [note, setNote] = useState("")
     const [title, setTitle] = useState("")
     const taskDispatch = useTasksDispatch()
-    const tasks = useTasks()
 
     function justNumber(e) {
         if (e.target.value) {
@@ -31,7 +30,6 @@ function TasksAdd() {
         if (tasks.length === 0) {
             task.selected = true
         }
-        console.log(task.selected)
         tasks.push(task)
         setTasks(tasks)
         taskDispatch({type: 'create', task})

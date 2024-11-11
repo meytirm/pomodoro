@@ -1,7 +1,8 @@
 import BaseTabs from "../base/BaseTabs";
-import {useState} from "react";
 
 function TimerNavigation({tab, tabs, onClick}) {
+    const body = document.querySelector('body')
+    body.style.backgroundColor = tabs[tab].color
     return (
         <BaseTabs value={tab} tabs={tabs} onClick={onClick}/>
     )
