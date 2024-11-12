@@ -1,12 +1,12 @@
 import TimerProgressBar from "./TimerProgressBar";
 import TimerNavigation from "./TimerNavigation";
-import {useState} from "react";
 import TimerCountDown from "./TimerCountDown";
-import {useSettings} from "../../SettingContext";
 import TimerController from "./TimerController";
 import TimerCounterReport from "./TimerCounterReport";
 import useTimer from "../../hooks/useTimer";
 import useOnComplete from "../../hooks/useOnComplete";
+import {useState} from "react";
+import {useSettings} from "../../SettingContext";
 
 
 function TheTimer() {

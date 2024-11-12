@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import {tab} from "@testing-library/user-event/dist/tab";
 import reportData from "../utils/reportData";
 
 function useTimer(initialTime, isPaused, onComplete, tab) {
