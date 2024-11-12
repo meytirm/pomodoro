@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+import reportData from "../utils/reportData";
 
-function useTimer(initialTime, isPaused, onComplete, onRunning) {
+function useTimer(initialTime, isPaused, onComplete, tab) {
   const [seconds, setSeconds] = useState(initialTime);
   const intervalRef = useRef(null);
 
@@ -14,7 +15,7 @@ function useTimer(initialTime, isPaused, onComplete, onRunning) {
     if (!isPaused) {
       intervalRef.current = setInterval(() => {
         setSeconds(seconds => seconds - 1)
-        onRunning()
+        reportData(tab)
       }, 1000)
     }
     return () => clearInterval(intervalRef.current)
