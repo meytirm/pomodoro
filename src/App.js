@@ -1,5 +1,4 @@
 import './App.scss';
-import moment from "moment";
 import TheApplication from "./components/TheApplication";
 
 function App() {

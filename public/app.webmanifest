@@ -1,0 +1,36 @@
+{
+    "name": "Pomodoro, The Pomodoro Technique is a time management method",
+    "short_name": "Pomodoro",
+    "start_url": "./",
+    "orientation": "any",
+    "theme": "#ba4949",
+    "scope": "./",
+    "display": "standalone",
+    "screenshots": [
+        {
+          "src": "desktop-screenshot.png",
+          "sizes": "1920x947",
+          "type": "image/png",
+          "form_factor": "wide"
+        },
+        {
+          "src": "mobile-screenshot.png",
+          "sizes": "1284x2778",
+          "type": "image/png",
+          "form_factor": "narrow"
+        }
+    ],
+    "icons": [
+        {
+            "src": "pomodoro.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "maskableicon512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
